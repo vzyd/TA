@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
-
 import static org.openqa.selenium.By.*;
 
 public class DocumentationPage extends BasePage {
@@ -15,7 +13,7 @@ public class DocumentationPage extends BasePage {
     private static final String CSHARP_TAB = "[id=tabs-1-2-tab]";
     private static final String RUBY_TAB = "[id=tabs-1-3-tab]";
     private static final String JAVA_SCRIPT_TAB = "[id=tabs-1-4-tab]";
-    private static final String KOTLIN_TAB = "[id=tabs-1-4-tab]";
+    private static final String KOTLIN_TAB = "[id=tabs-1-5-tab]";
 
     private static final String JAVA_CODE = "//code[@class='language-Java']//span";
     private static final String PYTHON_CODE = "//code[@class='language-Python']//span";
