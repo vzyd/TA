@@ -1,44 +1,52 @@
 package pageobject.tests;
 
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class Tests extends BaseTest {
 
-//    private String SEARCH_KEYWORD = "iPhone 11";
-//    private String EXPECTED_SEARCH_QUERY = "query=iPhone";
-
-//    @Test(priority = 1)
-//    public void checkThatUrlContainsSearchWord() {
-//        getHomePage().searchByKeyword(SEARCH_KEYWORD);
-//        assertTrue(getDriver().getCurrentUrl().contains(EXPECTED_SEARCH_QUERY));
-//    }
-//
-//    @Test(priority = 2)
-//    public void checkElementsAmountOnSearchPage() {
-//        getHomePage().searchByKeyword(SEARCH_KEYWORD);
-//        getHomePage().implicitWait(30);
-//        assertEquals(getSearchResultsPage().getSearchResultsCount(), 12);
-//    }
 
     @Test(priority = 1)
     public void checkThatJavaTabSelected() {
         getHomePage().clickOnDocumentationButton();
-
         getDocumentationPage().clickOnJavaTab();
-
-        assertTrue(getDocumentationPage().getTextFromJavaCode().contains("java"));
-
+        assertTrue(getDocumentationPage().isJavaTabSelected());
     }
+
 
     @Test(priority = 2)
     public void checkThatPythonTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnPythonTab();
-        getDocumentationPage().implicitWait(60);
-        assertTrue(getDocumentationPage().getTextFromPythonCode().contains("example"));
-
+        assertTrue(getDocumentationPage().isPythonTabSelected());
     }
+
+    @Test(priority = 3)
+    public void checkThatCSharpTabSelected() {
+        getHomePage().clickOnDocumentationButton();
+        getDocumentationPage().clickOnCSharpTab();
+        assertTrue(getDocumentationPage().isCSharpTabSelected());
+    }
+
+    @Test(priority = 4)
+    public void checkThatRubyTabSelected() {
+        getHomePage().clickOnDocumentationButton();
+        getDocumentationPage().clickOnRubyTab();
+        assertTrue(getDocumentationPage().isRubyTabSelected());
+    }
+
+    @Test(priority = 5)
+    public void checkThatJavaScriptTabSelected() {
+        getHomePage().clickOnDocumentationButton();
+        getDocumentationPage().clickOnJavaScriptTab();
+        assertTrue(getDocumentationPage().isJavaScriptTabSelected());
+    }
+
+    @Test(priority = 6)
+    public void checkThatKotlinTabSelected() {
+        getHomePage().clickOnDocumentationButton();
+        getDocumentationPage().clickOnKotlinTab();
+        assertTrue(getDocumentationPage().isKotlinTabSelected());
+    }
+
 }
