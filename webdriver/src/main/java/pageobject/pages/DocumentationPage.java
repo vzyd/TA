@@ -8,9 +8,9 @@ import static org.openqa.selenium.By.*;
 
 public class DocumentationPage extends BasePage {
 
-    private static final String JAVA_TAB = "//a[@id='tabs-1-0-tab']";
-    private static final String PYTHON_TAB = "[id=tabs-1-1-tab]";
-    private static final String CSHARP_TAB = "[id=tabs-1-2-tab]";
+    private static final String JAVA_TAB = "//a[@id='tabs-1-0-tab']"; //xpath locator
+    private static final String PYTHON_TAB = "tabs-1-1-tab"; //id locator
+    private static final String CSHARP_TAB = "[id=tabs-1-2-tab]"; //css locator
     private static final String RUBY_TAB = "[id=tabs-1-3-tab]";
     private static final String JAVA_SCRIPT_TAB = "[id=tabs-1-4-tab]";
     private static final String KOTLIN_TAB = "[id=tabs-1-5-tab]";
@@ -35,7 +35,7 @@ public class DocumentationPage extends BasePage {
     }
 
     public void clickOnJavaTab() {
-        driver.findElement(xpath(JAVA_TAB)).click();
+        driver.findElement(xpath(JAVA_TAB)).click(); // find by xpath
     }
     public boolean isJavaTabSelected() {
         return isTabSelected(JAVA_KEY_WORD, JAVA_CODE);
@@ -43,14 +43,14 @@ public class DocumentationPage extends BasePage {
 
 
     public void clickOnPythonTab() {
-        driver.findElement(By.cssSelector(PYTHON_TAB)).click();
+        driver.findElement(id(PYTHON_TAB)).click(); // find by id
     }
     public boolean isPythonTabSelected() {
         return isTabSelected(PYTHON_KEY_WORD, PYTHON_CODE);
     }
 
     public void clickOnCSharpTab() {
-        driver.findElement(cssSelector(CSHARP_TAB)).click();
+        driver.findElement(cssSelector(CSHARP_TAB)).click();// find by css
     }
     public boolean isCSharpTabSelected() {
         return isTabSelected(CSHARP_KEY_WORD, CSHARP_CODE);
