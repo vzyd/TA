@@ -22,6 +22,32 @@ public class DocumentationPage extends BasePage {
     private static final String JAVA_SCRIPT_CODE = "//code[@class='language-JavaScript']//span";
     private static final String KOTLIN_CODE = "//code[@class='language-Kotlin']//span";
 
+    public String getJavaCode() {
+        return JAVA_CODE;
+    }
+
+    public String getPythonCode() {
+        return PYTHON_CODE;
+    }
+
+    public String getCsharpCode() {
+        return CSHARP_CODE;
+    }
+
+    public String getRubyCode() {
+        return RUBY_CODE;
+    }
+
+    public String getJavaScriptCode() {
+        return JAVA_SCRIPT_CODE;
+    }
+
+    public String getKotlinCode() {
+        return KOTLIN_CODE;
+    }
+
+
+
     private static final String JAVA_KEY_WORD = "public";
     private static final String PYTHON_KEY_WORD = "from";
     private static final String CSHARP_KEY_WORD = "using";

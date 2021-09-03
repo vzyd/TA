@@ -1,5 +1,6 @@
 package pageobject.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
@@ -10,6 +11,7 @@ public class Tests extends BaseTest {
     public void checkThatJavaTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnJavaTab();
+        getDocumentationPage().waitVisibilityOfElement(30, By.xpath(getDocumentationPage().getJavaCode()));
         assertTrue(getDocumentationPage().isJavaTabSelected());
     }
 
@@ -18,6 +20,7 @@ public class Tests extends BaseTest {
     public void checkThatPythonTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnPythonTab();
+        getDocumentationPage().waitVisibilityOfElement(30, By.xpath(getDocumentationPage().getPythonCode()));
         assertTrue(getDocumentationPage().isPythonTabSelected());
     }
 
@@ -25,6 +28,7 @@ public class Tests extends BaseTest {
     public void checkThatCSharpTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnCSharpTab();
+        getDocumentationPage().waitVisibilityOfElement(30, By.xpath(getDocumentationPage().getCsharpCode()));
         assertTrue(getDocumentationPage().isCSharpTabSelected());
     }
 
@@ -32,6 +36,7 @@ public class Tests extends BaseTest {
     public void checkThatRubyTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnRubyTab();
+        getDocumentationPage().waitVisibilityOfElement(30, By.xpath(getDocumentationPage().getRubyCode()));
         assertTrue(getDocumentationPage().isRubyTabSelected());
     }
 
@@ -39,6 +44,7 @@ public class Tests extends BaseTest {
     public void checkThatJavaScriptTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnJavaScriptTab();
+        getDocumentationPage().waitVisibilityOfElement(30, By.xpath(getDocumentationPage().getJavaScriptCode()));
         assertTrue(getDocumentationPage().isJavaScriptTabSelected());
     }
 
@@ -46,6 +52,7 @@ public class Tests extends BaseTest {
     public void checkThatKotlinTabSelected() {
         getHomePage().clickOnDocumentationButton();
         getDocumentationPage().clickOnKotlinTab();
+        getDocumentationPage().waitVisibilityOfElement(60, By.xpath(getDocumentationPage().getKotlinCode()));
         assertTrue(getDocumentationPage().isKotlinTabSelected());
     }
 
