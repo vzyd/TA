@@ -29,9 +29,7 @@ public class DocumentationPage {
 
 
     public ElementsCollection getJavaCode() {
-
         if ($(byXpath("//a[@id ='tabs-1-0-tab' and @aria-selected='true']")).exists()) {
-
             return javaCode;
         }
         return BLANK_LIST;
