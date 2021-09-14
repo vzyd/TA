@@ -29,6 +29,7 @@ public class DocumentationPage {
 
 
     public ElementsCollection getJavaCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-0-tab' and @aria-selected='true']")).exists()) {
             return javaCode;
         }
@@ -36,6 +37,7 @@ public class DocumentationPage {
     }
 
     public ElementsCollection getPythonCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-1-tab' and @aria-selected='true']")).exists()) {
             return pythonCode;
         }
@@ -43,6 +45,7 @@ public class DocumentationPage {
     }
 
     public ElementsCollection getCsharpCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-2-tab' and @aria-selected='true']")).exists()) {
             return csharpCode;
         }
@@ -50,6 +53,7 @@ public class DocumentationPage {
     }
 
     public ElementsCollection getRubyCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-3-tab' and @aria-selected='true']")).exists()) {
             return rubyCode;
         }
@@ -57,6 +61,7 @@ public class DocumentationPage {
     }
 
     public ElementsCollection getJavaScriptCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-4-tab' and @aria-selected='true']")).exists()) {
             return jsCode;
         }
@@ -64,6 +69,7 @@ public class DocumentationPage {
     }
 
     public ElementsCollection getKotlinCode() {
+        // проверяем, что закладка выбрана и возвращаем содержимое
         if ($(byXpath("//a[@id ='tabs-1-5-tab' and @aria-selected='true']")).exists()) {
             return kotlinCode;
         }
