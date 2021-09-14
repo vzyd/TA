@@ -12,6 +12,8 @@ public class Tests {
 
     @BeforeMethod
     public void testsSetUp() {
+
+
         open("https://www.selenium.dev/");
         new HomePage().clickOnDocumentationButton();
 

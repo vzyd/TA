@@ -1,6 +1,5 @@
 package pages;
 
-
 import com.codeborne.selenide.ElementsCollection;
 
 import static com.codeborne.selenide.Selectors.byId;
@@ -17,6 +16,7 @@ public class DocumentationPage {
     private static final String JAVA_SCRIPT_TAB = "[id=tabs-1-4-tab]";
     private static final String KOTLIN_TAB = "[id=tabs-1-5-tab]";
 
+
     // содержимое закладки сохраняем в List
     private static final ElementsCollection javaCode = $$(byXpath("//code[@class='language-Java']//span"));
     private static final ElementsCollection pythonCode = $$(byXpath("//code[@class='language-Python']//span"));
@@ -25,29 +25,51 @@ public class DocumentationPage {
     private static final ElementsCollection jsCode = $$(byXpath("//code[@class='language-JavaScript']//span"));
     private static final ElementsCollection kotlinCode = $$(byXpath("//code[@class='language-Kotlin']//span"));
 
+    private static final ElementsCollection BLANK_LIST = null;
+
 
     public ElementsCollection getJavaCode() {
-        return javaCode;
+
+        if ($(byXpath("//a[@id ='tabs-1-0-tab' and @aria-selected='true']")).exists()) {
+
+            return javaCode;
+        }
+        return BLANK_LIST;
     }
 
     public ElementsCollection getPythonCode() {
-        return pythonCode;
+        if ($(byXpath("//a[@id ='tabs-1-1-tab' and @aria-selected='true']")).exists()) {
+            return pythonCode;
+        }
+        return BLANK_LIST;
     }
 
     public ElementsCollection getCsharpCode() {
-        return csharpCode;
+        if ($(byXpath("//a[@id ='tabs-1-2-tab' and @aria-selected='true']")).exists()) {
+            return csharpCode;
+        }
+        return BLANK_LIST;
     }
 
     public ElementsCollection getRubyCode() {
-        return rubyCode;
+        if ($(byXpath("//a[@id ='tabs-1-3-tab' and @aria-selected='true']")).exists()) {
+            return rubyCode;
+        }
+        return BLANK_LIST;
     }
 
     public ElementsCollection getJavaScriptCode() {
-        return jsCode;
+        if ($(byXpath("//a[@id ='tabs-1-4-tab' and @aria-selected='true']")).exists()) {
+            return jsCode;
+        }
+        return BLANK_LIST;
     }
 
     public ElementsCollection getKotlinCode() {
-        return kotlinCode;
+        if ($(byXpath("//a[@id ='tabs-1-5-tab' and @aria-selected='true']")).exists()) {
+            return kotlinCode;
+        }
+        return BLANK_LIST;
     }
 
 
