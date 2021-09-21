@@ -31,7 +31,7 @@ public class TestBooks {
     }
 
     @Test
-    public void checkGetBook(){
+    public void checkGetBook() {
         given().spec(BaseSettings.getRequestSpec())
                 .when().get("BookStore/v1/Book?ISBN=9781449331818")
                 .then().assertThat().statusCode(200)
@@ -40,7 +40,7 @@ public class TestBooks {
 
 
     @Test(enabled = false)
-    public void checkChangeIsbnInUser(){
+    public void checkChangeIsbnInUser() {
         given().spec(BaseSettings.getRequestSpec())
                 .header("content-type", "application/json")
                 .body(userBook)
@@ -50,12 +50,31 @@ public class TestBooks {
     }
 
     @Test
-    public void checkDelBook(){
+    public void checkDelBook() {
         given().spec(BaseSettings.getRequestSpec())
                 .header("content-type", "application/json")
                 .body(userBook)
                 .when()
                 .delete("BookStore/v1/Book")
+                .then().assertThat().statusCode(401)
+                .body("message", equalTo("User not authorized!"));
+    }
+
+    @Test
+    public void checkAddUserBooks() {
+        String jsonRequest = "{\n" +
+                                "\"userId\": \"user3\",\n" +
+                                "\"collectionOfIsbns\": [ \n" +
+                                    "{\n" +
+                                        " \"isbn\": \"9781449365035\" \n" +
+                                      "}\n" +
+                                  " ]\n" +
+                               "}\n";
+        given().spec(BaseSettings.getRequestSpec())
+                .header("content-type", "application/json")
+                .body(jsonRequest)
+                .when()
+                .post("BookStore/v1/Books")
                 .then().assertThat().statusCode(401)
                 .body("message", equalTo("User not authorized!"));
     }
