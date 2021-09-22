@@ -1,6 +1,6 @@
-import org.apache.commons.lang3.RandomStringUtils;
+package DTO;
 
-import java.util.Random;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserDTO {
     private String userName;

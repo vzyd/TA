@@ -1,10 +1,12 @@
+package DTO;
+
 import java.util.List;
 
 
 public class UserCreationResponse {
     private String userID;
-    private  String username;
-    private List<String>  books;
+    private String username;
+    private List<String> books;
 
     public String getUserID() {
         return userID;

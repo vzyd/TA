@@ -11,3 +11,5 @@ public class BaseSettings {
         return RestAssuredConfig.newConfig();
     }
 }
+
+
