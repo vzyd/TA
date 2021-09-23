@@ -28,7 +28,7 @@ public class Tests {
 
         UserDTO newUser = new UserDTO();
         userLogin.put("userName", newUser.getUserName());
-        userLogin.put("password", newUser.getPassward());
+        userLogin.put("password", newUser.getPassword());
 
         UserCreationResponse userCreationResponse = createUser();
         userID = userCreationResponse.getUserID();
