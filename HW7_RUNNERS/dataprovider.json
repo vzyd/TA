@@ -1,7 +1,8 @@
-[{
+[
+  {
+    "productMenu": "Apple Store"
+  },
+  {
   "productMenu": "Смартфоны и телефоны"
-},
-{
-  "productMenu": "iphone"
 }
   ]
