@@ -1,7 +1,10 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class HomePage extends BasePage {
 
@@ -46,4 +49,9 @@ public class HomePage extends BasePage {
         return productCatalogButton.getText();
     }
 
+public WebElement productsMenu = driver.findElement(By.cssSelector("[class='menu-lvl first-level']"));
+
+    public WebElement getProductsMenu() {
+        return productsMenu;
+    }
 }
