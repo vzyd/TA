@@ -1,27 +1,20 @@
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
+
 public class SearchTests extends BaseTest {
 
-    private String SEARCH_KEYWORD = "tv";
-    private String TEXT_IN_WEBELEMENTS = "TV";
-
-    @DataProvider(name = "test-data")
-    public Object[][] dataProvFunc(){
-        return new Object[][]{
-                {"tv","TV"},{"iphone","iPhone"}
-        };
-    }
-
-
-    @Test(dataProvider = "test-data")
+    @Test(dataProvider = "test-data", dataProviderClass = DataProviders.class)
     public void checkThatSearchResultsContainsSearchWord(String keyWord1, String keyWord2) {
         getHomePage().searchByKeyword(keyWord1);
-        for (WebElement webElement : getSearchResultsPage().getSearchResultsList()) {
-            assertTrue(webElement.getText().contains(keyWord2));
+        getHomePage().waitForPageLoadComplete(30);
+        List<WebElement> searchResultsList = getSearchResultsPage().getSearchResultsList();
+        for (WebElement element : searchResultsList) {
+            assertTrue(element.getText().toUpperCase().contains(keyWord2));
         }
     }
 }

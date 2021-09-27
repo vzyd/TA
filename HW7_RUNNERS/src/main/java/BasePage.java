@@ -5,8 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
-
 public class BasePage {
 
     WebDriver driver;
@@ -16,9 +14,6 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public void implicitWait(long timeToWait) {
-        driver.manage().timeouts().implicitlyWait(timeToWait, TimeUnit.SECONDS);
-    }
 
     public void waitForPageLoadComplete(long timeToWait) {
         new WebDriverWait(driver, timeToWait).until(

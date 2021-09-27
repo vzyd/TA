@@ -1,10 +1,9 @@
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
 public class HomePage extends BasePage {
 
@@ -14,11 +13,8 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[@class='sidebar-item']")
     private WebElement productCatalogButton;
 
-    @FindBy(xpath = "//ul[contains(@class,'sidebar-list')]//a[contains(@href, 'televizory-i-aksessuary1')]")
-    private WebElement tvAccessoriesStoreButton;
-
-    @FindBy(xpath = "//div[contains(@class,'header-bottom__cart')]//div[contains(@class,'cart_count')]")
-    private WebElement amountOfProductsInCart;
+    @FindBy(css = "[class='menu-lvl first-level']")
+    private WebElement productsMenu;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -32,24 +28,6 @@ public class HomePage extends BasePage {
         productCatalogButton.click();
     }
 
-    public void clickOnTvAccessoriesStoreButton() {
-        tvAccessoriesStoreButton.click();
-    }
-
-
-    public String getTextOfAmountProductsInCart() {
-        return amountOfProductsInCart.getText();
-    }
-
-    public WebElement getProductsInCartIcon() {
-        return amountOfProductsInCart;
-    }
-
-    public String getTextOfProductMenu() {
-        return productCatalogButton.getText();
-    }
-
-public WebElement productsMenu = driver.findElement(By.cssSelector("[class='menu-lvl first-level']"));
 
     public WebElement getProductsMenu() {
         return productsMenu;

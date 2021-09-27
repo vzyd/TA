@@ -11,6 +11,18 @@ public class BaseTest {
     private WebDriver driver;
     private static final String AVIC_URL = "https://avic.ua/";
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public HomePage getHomePage() {
+        return new HomePage(getDriver());
+    }
+
+    public SearchResultsPage getSearchResultsPage() {
+        return new SearchResultsPage(getDriver());
+    }
+
 
     @BeforeTest
     public void profileSetUp() {
@@ -29,24 +41,5 @@ public class BaseTest {
         driver.close();
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
-    public HomePage getHomePage() {
-        return new HomePage(getDriver());
-    }
-
-    public SearchResultsPage getSearchResultsPage() {
-        return new SearchResultsPage(getDriver());
-    }
-
-    public TvAccessoriesPage getTvAccessoriesPage() {
-        return new TvAccessoriesPage(getDriver());
-    }
-
-    public TvPage getTvPage() {
-        return new TvPage(getDriver());
-    }
 
 }
