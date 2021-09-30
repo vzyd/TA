@@ -12,19 +12,26 @@ public class HomePage extends BasePage{
         super(driver);
     }
 
-    @FindBy(css = "#user_email")
-    WebElement emailEntryField;
+//    @FindBy(css = "#user_email")
+//    WebElement emailEntryField;
+
+    @FindBy(xpath = "//button[contains(@data-hydro-click, 'Sign up')]")
+    WebElement signUpButton;
 
     public void openHomePage(String url) {
         driver.get(url);
     }
 
-    public void enterEmail(String userEmail){
-        emailEntryField.clear();
-        emailEntryField.sendKeys(userEmail, Keys.ENTER);
+    public void clickOnSignUpButton(){
+        signUpButton.click();
     }
 
-    public Alert getAlertMessage(){
-        return driver.switchTo().alert();
-    }
+//    public void enterEmail(String userEmail){
+//        emailEntryField.clear();
+//        emailEntryField.sendKeys(userEmail, Keys.ENTER);
+//    }
+
+//    public Alert getAlertMessage(){
+//        return driver.switchTo().alert();
+//    }
 }
