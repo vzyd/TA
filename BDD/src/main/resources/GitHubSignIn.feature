@@ -14,20 +14,26 @@ Feature: Git Hub sign in
       | https://www.github.com/ | invalid123 |
 
 
-#  Scenario: message under password field indicates a completeness of password requirements
+  Scenario Outline: message under password field indicates a completeness of password requirements
+
+    Given Github '<homePage>' is opened
+    And user click on 'Sign up' button
+    And user enters '<email>' into email field
+
+    When user enters '<password1>' into password field
+
+    Then 'at least 15 characters' message should be marked light blue
+
+    And 'Password is too short' message should be marked red
 #
-#    Given Github home page is opened
-#
-#    When user enters “AAA” into password field
-#    Then “at least 15 characters” message should be marked red
-#
-#    And “a lowercase letter” message should be marked red
-#
-#    When user enters “AAAaaa” into password field
+#    When user enters "<password2>" into password field
 #    Then “at least 15 characters” message should be marked red
 #
 #    And “a lowercase letter” message should be marked green
-#
+
+    Examples:
+      | homePage                | email             | password1 | password2 |
+      | https://www.github.com/ | trainee@gmail.com | AAA       | AAAaaa    |
 #
 #
 #  Scenario: error message is displayed upon registration with already existent username
