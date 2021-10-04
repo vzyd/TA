@@ -1,10 +1,8 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
+
 
 public class SignUpPage extends BasePage{
     public SignUpPage(WebDriver driver) {
@@ -23,19 +21,22 @@ public class SignUpPage extends BasePage{
     WebElement inputPasswordField;
 
     @FindBy(xpath = "//p[@id='password-err']//p[contains(text(), 'short')]")
-    WebElement passwordErrMessage1;
+    WebElement shortPasswordMessage;
+
+    @FindBy(xpath = "//p[@id='password-err']//p[contains(text(), 'lowercase letter')]")
+    WebElement needLowercasePassMessage;
 
     @FindBy(xpath = "//p[@id='password-err']//span[contains(text(), 'at least 15')]")
-    WebElement passwordErrMessage2;
+    WebElement howMuchCharPassMassage;
 
     public void enterEmail(String userEmail){
         inputEmailField.clear();
         inputEmailField.sendKeys(userEmail);
 
-      //  inputEmailContinueButton.click();
+    }
 
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].click();", inputEmailContinueButton);
+    public void clickOnContinueButton(){
+        inputEmailContinueButton.click();
     }
 
     public String getEmailErrorText(){
@@ -50,6 +51,7 @@ public class SignUpPage extends BasePage{
         return emailErrMessage;
     }
 
+
     public void enterPassword(String password){
         inputPasswordField.clear();
         inputPasswordField.sendKeys(password);
@@ -59,19 +61,27 @@ public class SignUpPage extends BasePage{
         return inputPasswordField;
     }
 
-    public WebElement getPasswordErrMessage1() {
-        return passwordErrMessage1;
+    public WebElement getShortPasswordMessage() {
+        return shortPasswordMessage;
     }
 
-    public WebElement getPasswordErrMessage2() {
-        return passwordErrMessage2;
+    public WebElement getHowMuchCharPassMassage() {
+        return howMuchCharPassMassage;
     }
 
-    public String getColorPasswordMessage1(){
-        return passwordErrMessage1.getCssValue("color");
+    public String getColorShortPasswordMessage(){
+        return shortPasswordMessage.getCssValue("color");
     }
 
-    public String getColorPasswordMessage2(){
-        return passwordErrMessage2.getCssValue("color");
+    public String getColorHowMuchCharPassMassage(){
+        return howMuchCharPassMassage.getCssValue("color");
+    }
+
+    public String getColorNeedLowercasePassMessage(){
+        return needLowercasePassMessage.getCssValue("color");
+    }
+
+    public WebElement getInputEmailContinueButton() {
+        return inputEmailContinueButton;
     }
 }

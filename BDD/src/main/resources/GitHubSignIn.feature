@@ -25,15 +25,15 @@ Feature: Git Hub sign in
     Then 'at least 15 characters' message should be marked light blue
 
     And 'Password is too short' message should be marked red
-#
-#    When user enters "<password2>" into password field
-#    Then “at least 15 characters” message should be marked red
-#
-#    And “a lowercase letter” message should be marked green
+
+    When user enters "<password2>" into password field
+    Then 'at least 15 characters' message should be marked light blue
+
+    And 'lowercase letter' message should be marked yellow
 
     Examples:
       | homePage                | email             | password1 | password2 |
-      | https://www.github.com/ | trainee@gmail.com | AAA       | AAAaaa    |
+      | https://www.github.com/ | trainee@gmail.com | AAA       | AAAaaaaaa    |
 #
 #
 #  Scenario: error message is displayed upon registration with already existent username

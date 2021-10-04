@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasePage {
 
     protected WebDriver driver;
@@ -34,5 +36,14 @@ public class BasePage {
     public void waitVisibilityOfElement(long timeToWait, WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, timeToWait);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void implicitWait(long timeToWait) {
+        driver.manage().timeouts().implicitlyWait(timeToWait, TimeUnit.SECONDS);
+    }
+
+    public void waitUntilElementToBeClickable(long timeToWait, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, timeToWait);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }
