@@ -45,8 +45,15 @@ public class DefinitionSteps {
 
     }
 
-    @When("user enters {string} into email field")
+    @When("user enters invalid or existing {string} into email field")
     public void enterEmail(final String email) {
+        signUpPage = pageFactoryManager.getSignUpPage();
+        signUpPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signUpPage.getInputEmailField());
+        signUpPage.enterEmail(email);
+            }
+
+    @When("user enters {string} into email field")
+    public void enterCorrectEmail(final String email) {
         signUpPage = pageFactoryManager.getSignUpPage();
         signUpPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signUpPage.getInputEmailField());
         signUpPage.enterEmail(email);
@@ -68,25 +75,34 @@ public class DefinitionSteps {
         signUpPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signUpPage.getHowMuchCharPassMassage());
     }
 
-    @Then("'at least 15 characters' message should be marked light blue")
-    public void checkColorHowMuchCharMassage() {
+    @Then("'at least 15 characters' message should be marked {string}")
+    public void checkColorHowMuchCharMassage(String color) {
         signUpPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signUpPage.getInputPasswordField());
-        String lightBlue = "rgba(98, 117, 151, 1)";
-        assertEquals(lightBlue, signUpPage.getColorHowMuchCharPassMassage());
+        assertEquals(color, signUpPage.getColorHowMuchCharPassMassage());
     }
 
-    @And("'Password is too short' message should be marked red")
-    public void checkColorShortPasswordMessage() {
-        String red = "rgba(237, 78, 80, 1)";
-        assertEquals(red, signUpPage.getColorShortPasswordMessage());
+    @And("'Password is too short' message should be marked {string}")
+    public void checkColorShortPasswordMessage(String color) {
+        assertEquals(color, signUpPage.getColorShortPasswordMessage());
     }
 
-    @And("'lowercase letter' message should be marked yellow")
-    public void checkColorNeedLowercaseMessage(){
-        String yellow = "rgba(255, 211, 61, 1)";
-        assertEquals(yellow, signUpPage.getColorNeedLowercasePassMessage());
+    @And("'lowercase letter' message should be marked {string}")
+    public void checkColorNeedLowercaseMessage(String color) {
+        assertEquals(color, signUpPage.getColorNeedLowercasePassMessage());
     }
 
+
+    @Then("{string} error sign inside username field should be displayed")
+    public void checkColorExistentUserMassage(String color){
+        assertEquals(color,signUpPage.getColorEmailErrMessage());
+    }
+
+    @And("error message below username field should be displayed")
+    public void checkExistingEmailErr() {
+        String errMessage = "already taken";
+        signUpPage.waitVisibilityOfElement(DEFAULT_TIMEOUT, signUpPage.getEmailErrMessage());
+        assertTrue(signUpPage.getEmailErrorText().contains(errMessage));
+    }
 
     @After
     public void tearDown() {

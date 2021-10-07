@@ -29,6 +29,7 @@ public class SignUpPage extends BasePage{
     @FindBy(xpath = "//p[@id='password-err']//span[contains(text(), 'at least 15')]")
     WebElement howMuchCharPassMassage;
 
+
     public void enterEmail(String userEmail){
         inputEmailField.clear();
         inputEmailField.sendKeys(userEmail);
@@ -83,5 +84,9 @@ public class SignUpPage extends BasePage{
 
     public WebElement getInputEmailContinueButton() {
         return inputEmailContinueButton;
+    }
+
+    public String getColorEmailErrMessage(){
+        return emailErrMessage.getCssValue("color");
     }
 }
